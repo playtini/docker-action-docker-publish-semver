@@ -26,7 +26,7 @@ jobs:
         uses: flownative/action-git-latest-release@master
 
       - name: Tag semver releases
-        uses: flownative/action-docker-publish-semver@1.0.12
+        uses: flownative/action-docker-publish-semver@v1.0.12
         with:
           tag_ref: ${{ steps.latest_version.outputs.tag }}
           tag_latest: 'yes'
@@ -42,7 +42,7 @@ jobs:
           target_registry_endpoint: https://docker.pkg.github.com/v2/
 
       - name: Publish release to docker.io
-        uses: flownative/action-docker-publish-semver@1.0.12
+        uses: flownative/action-docker-publish-semver@v1.0.12
         with:
           tag_ref: ${{ steps.latest_version.outputs.tag }}
           tag_latest: 'yes'
