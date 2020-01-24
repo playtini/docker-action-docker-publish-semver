@@ -32,8 +32,8 @@ if [ "${INPUT_TAG_LATEST}" = "yes" ] || [ "${INPUT_TAG_LATEST}" = "true" ]; then
   docker push "${INPUT_TARGET_IMAGE_NAME}:latest"
 fi
 
-echo "::set-output image_tag::${TAG}"
-echo "::set-output image_tag_major::${DOCKER_IMAGE_TAG_MAJOR}"
-echo "::set-output image_tag_minor::${DOCKER_IMAGE_TAG_MINOR}"
-echo "::set-output image_tag_patch::${DOCKER_IMAGE_TAG_PATCH}"
-echo "::set-output image_tag_patch_with_pre_release::${DOCKER_IMAGE_TAG_PATCH_WITH_PRE_RELEASE}"
+echo "::set-output name=image_tag::${TAG}"
+echo "::set-output name=image_tag_major::${DOCKER_IMAGE_TAG_MAJOR}"
+echo "::set-output name=image_tag_minor::${DOCKER_IMAGE_TAG_MINOR}"
+echo "::set-output name=image_tag_patch::${DOCKER_IMAGE_TAG_PATCH}"
+echo "::set-output name=image_tag_patch_with_pre_release::${DOCKER_IMAGE_TAG_PATCH_WITH_PRE_RELEASE}"
