@@ -32,6 +32,12 @@ if [ "${INPUT_TAG_LATEST}" = "yes" ] || [ "${INPUT_TAG_LATEST}" = "true" ]; then
   docker push "${INPUT_TARGET_IMAGE_NAME}:latest"
 fi
 
+if [ "${INPUT_TAG_CUSTOM}" != "" ]; then
+  echo "Creating and publishing custom tag '${INPUT_TAG_CUSTOM}' ..."
+  docker tag "${INPUT_SOURCE_IMAGE_NAME}:${TAG}" "${INPUT_TARGET_IMAGE_NAME}:${INPUT_TAG_CUSTOM}"
+  docker push "${INPUT_TARGET_IMAGE_NAME}:${INPUT_TAG_CUSTOM}"
+fi
+
 echo "::set-output name=image_tag::${TAG}"
 echo "::set-output name=image_tag_major::${DOCKER_IMAGE_TAG_MAJOR}"
 echo "::set-output name=image_tag_minor::${DOCKER_IMAGE_TAG_MINOR}"
