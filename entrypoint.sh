@@ -38,8 +38,9 @@ if [ "${INPUT_TAG_CUSTOM}" != "" ]; then
   docker push "${INPUT_TARGET_IMAGE_NAME}:${INPUT_TAG_CUSTOM}"
 fi
 
-echo "::set-output name=image_tag::${TAG}"
-echo "::set-output name=image_tag_major::${DOCKER_IMAGE_TAG_MAJOR}"
-echo "::set-output name=image_tag_minor::${DOCKER_IMAGE_TAG_MINOR}"
-echo "::set-output name=image_tag_patch::${DOCKER_IMAGE_TAG_PATCH}"
-echo "::set-output name=image_tag_patch_with_pre_release::${DOCKER_IMAGE_TAG_PATCH_WITH_PRE_RELEASE}"
+#echo "{name}={value}" >> $GITHUB_OUTPUT
+echo "image_tag=${TAG}" >> $GITHUB_OUTPUT
+echo "image_tag_major=${DOCKER_IMAGE_TAG_MAJOR}" >> $GITHUB_OUTPUT
+echo "image_tag_minor=${DOCKER_IMAGE_TAG_MINOR}" >> $GITHUB_OUTPUT
+echo "image_tag_patch=${DOCKER_IMAGE_TAG_PATCH}" >> $GITHUB_OUTPUT
+echo "image_tag_patch_with_pre_release=${DOCKER_IMAGE_TAG_PATCH_WITH_PRE_RELEASE}" >> $GITHUB_OUTPUT
